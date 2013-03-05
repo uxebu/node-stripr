@@ -19,4 +19,28 @@ describe('doctr', function() {
     expect(doctr('<!DOCTYPE html><div>Test</div>')).toBe('<div>Test</div>');
   });
 
+  it('strips doctype and unnecessary tags from valid HTML string with CSS classes', function() {
+    expect(doctr('<!DOCTYPE html><html class="ie7"><head><title>Test</head><body class="ie7"><div>Test</div></body></html>'))
+      .toBe('<div>Test</div>');
+  });
+
+  it('strips unnecessary tags from valid HTML string with uppercase-only coding style', function() {
+    expect(doctr('<HTML><HEAD><TITLE>Test!</TITLE></HEAD><BODY><DIV>Test</DIV></BODY></HTML>'))
+      .toBe('<DIV>Test</DIV>');
+  });
+
+  it('strips doctype and unnecessary tags from valid HTML string with multiline syntax', function() {
+    expect(doctr('<html \
+      class="ie7"><head><title>Test \
+      </title></head><body><div>Test</div></body></html>')).toBe('<div>Test</div>');
+  });
+
+  it('doesn\'t strip anything if the input is a valid HTML fragment', function() {
+    expect(doctr('Test<br /><div>Test</div>')).toBe('Test<br /><div>Test</div>');
+  });
+
+  it('strips unnecessary html structur including empty head element edge case from valid HTML string', function() {
+    expect(doctr('<html><head /><body><div>Test</div></body></html>')).toBe('<div>Test</div>');
+  });
+
 });

@@ -14,7 +14,7 @@ module.exports = function(){
   var stripRegexes = {
     '<!doctype': /<!doctype((.|\n|\r)*?)>/i,
     '<html': /<html((.|\n|\r)*?)>/i,
-    '<head': /<head>(?:.|\n|\r)+?<\/head>/i,
+    '<head': /<head(?:.|\n|\r)+?(<\/head>|\/>)/i,
     '<body': /<body((.|\n|\r)*?)>/i,
     '</body>': /<\/body>/i,
     '</html>': /<\/html>/i
