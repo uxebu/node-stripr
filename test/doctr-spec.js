@@ -39,8 +39,14 @@ describe('doctr', function() {
     expect(doctr('Test<br /><div>Test</div>')).toBe('Test<br /><div>Test</div>');
   });
 
-  it('strips unnecessary html structur including empty head element edge case from valid HTML string', function() {
+  it('strips unnecessary html structure including empty head element edge case from valid HTML string', function() {
     expect(doctr('<html><head /><body><div>Test</div></body></html>')).toBe('<div>Test</div>');
+  });
+
+  it('strips unnecessary html structure based on optionally provided stripping rules', function() {
+    expect(doctr('<html><head /><body><nav>Test</nav><div>Test</div></body></html>', {
+      '<nav': /<nav(?:.|\n|\r)+?(<\/nav>|\/>)/i
+    })).toBe('<div>Test</div>');
   });
 
 });

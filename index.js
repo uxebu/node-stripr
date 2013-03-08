@@ -8,6 +8,7 @@ module.exports = function() {
 
   var input = arguments[0],
       inputLower = input.toLowerCase(),
+      options = arguments[1] || {},
       output = input;
 
   var stripRegexes = {
@@ -18,6 +19,13 @@ module.exports = function() {
     '</body>': /<\/body>/i,
     '</html>': /<\/html>/i
   };
+
+  // merge stripRegexes with additionaly provided rules
+  for (var key in options) {
+    if (options.hasOwnProperty(key)) {
+        stripRegexes[key] = options[key];
+    }
+  }
 
   for (var key in stripRegexes) {
     if (stripRegexes.hasOwnProperty(key)) {
