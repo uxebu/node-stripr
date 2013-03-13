@@ -6,6 +6,7 @@ Node.js Script for stripping content
 
 ~~~bash
 $ npm install node-stripr
+~~~
 
 ## Usage Example
 
