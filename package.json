@@ -10,7 +10,10 @@
   "keywords": [
     "strip content"
   ],
-  "author": "Patrick Wied",
+  "author": "uxebu Inc. (http://uxebu.com/)",
+  "contributors": [
+    "Patrick Wied <wied@uxebu.com>"
+  ],
   "license": "MIT",
   "devDependencies": {
     "jasmine-node": "~1.3.0"
