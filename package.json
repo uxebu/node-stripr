@@ -1,14 +1,14 @@
 {
-  "name": "node-doctr",
+  "name": "node-stripr",
   "version": "0.1.0",
-  "description": "Node Script for stripping jsdoc and generating html via markdown",
+  "description": "Node Script for stripping content",
   "main": "index.js",
   "scripts": {
     "test": "jasmine-node test"
   },
-  "repository": "",
+  "repository": "https://github.com/uxebu/node-stripr",
   "keywords": [
-    ""
+    "strip content"
   ],
   "author": "Patrick Wied",
   "license": "MIT",
