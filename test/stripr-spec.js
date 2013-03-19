@@ -1,4 +1,5 @@
-var stripr = require('../index.js');
+var stripr = require('../index.js'),
+    fs = require('fs');
 
 describe('stripr', function() {
 
@@ -47,6 +48,12 @@ describe('stripr', function() {
     expect(stripr('<html><head /><body><nav>Test</nav><div>Test</div></body></html>', {
       '<nav': /<nav(?:.|\n|\r)+?(<\/nav>|\/>)/i
     })).toBe('<div>Test</div>');
+  });
+
+  it('strips unnecessary html structure from a test-file based on optionally provided stripping rules', function() {
+    expect(stripr(fs.readFileSync('test/test.html').toString(), {
+      '<!-- Generated': /<!(.|\n|\r)*<\/h2><a name="JIRA_Report"><\/a>/i
+    })).toBe('<table>Test</table>');
   });
 
 });
