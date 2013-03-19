@@ -1,6 +1,6 @@
 {
   "name": "node-stripr",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Node Script for stripping content",
   "main": "index.js",
   "scripts": {
