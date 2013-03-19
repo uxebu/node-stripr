@@ -14,7 +14,7 @@ module.exports = function() {
   var stripRegexes = {
     '<!doctype': /<!doctype((.|\n|\r)*?)>/i,
     '<html': /<html((.|\n|\r)*?)>/i,
-    '<head': /<head(?:.|\n|\r)+?(<\/head>|\/>)/i,
+    '<head': /(<head(.|\n|\r)*<\/head>|<head(.)*\/>)/i,
     '<body': /<body((.|\n|\r)*?)>/i,
     '</body>': /<\/body>/i,
     '</html>': /<\/html>/i
@@ -31,7 +31,7 @@ module.exports = function() {
     if (stripRegexes.hasOwnProperty(key)) {
 
       // check if keys have a match in input and strip away using the regexes
-      if (inputLower.indexOf(key) > -1) {
+      if (inputLower.indexOf(key.toLowerCase()) > -1) {
         output = output.replace(stripRegexes[key], '');
       }
     }
